@@ -10,11 +10,31 @@ import Foundation
 
 public extension DateComponents {
     var ago: Date? {
-        return Calendar.current.date(byAdding: -self, to: Date())
+        return before(.now)
     }
 
     var later: Date? {
-        return Calendar.current.date(byAdding: self, to: Date())
+        return after(.now)
+    }
+
+    func after(_ date: Date) -> Date? {
+        return date + self
+    }
+
+    func from(_ date: Date) -> Date? {
+        return after(date)
+    }
+
+    func since(_ date: Date) -> Date? {
+        return after(date)
+    }
+
+    func before(_ date: Date) -> Date? {
+        return date - self
+    }
+
+    func until(_ date: Date) -> Date? {
+        return before(date)
     }
 
     /// Creates inverse `DateComponents`

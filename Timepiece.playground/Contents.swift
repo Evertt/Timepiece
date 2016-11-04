@@ -9,9 +9,9 @@ Date(year: 2014, month: 8, day: 14, hour: 20, minute: 25, second: 43, nanosecond
 Date(year: 2014, month: 8, day: 14, hour: 20, minute: 25, second: 43)
 Date(year: 2014, month: 8, day: 14)
 
-Date.today()
-Date.yesterday()
-Date.tomorrow()
+Date.today
+Date.yesterday
+Date.tomorrow
 
 // The properties of Date
 now.year
@@ -30,6 +30,8 @@ now + (3.weeks - 4.days + 5.hours)
 
 1.year.later
 1.year.ago
+
+1.year.from(.tomorrow)
 
 // Format
 now.string(inDateStyle: .long, andTimeStyle: .medium)

@@ -112,27 +112,34 @@ extension Date {
     public init(year: Int, month: Int, day: Int) {
         self.init(year: year, month: month, day: day, hour: 0, minute: 0, second: 0)
     }
+    
+    /// Creates a new instance representing now.
+    ///
+    /// - returns: The created `Date` instance representing now.
+    public static var now: Date {
+        return Date()
+    }
 
     /// Creates a new instance representing today.
     ///
     /// - returns: The created `Date` instance representing today.
-    public static func today() -> Date {
-        let now = Date()
+    public static var today: Date {
+        let now = Date.now
         return Date(year: now.year, month: now.month, day: now.day)
     }
 
     /// Creates a new instance representing yesterday
     ///
     /// - returns: The created `Date` instance representing yesterday.
-    public static func yesterday() -> Date {
-        return (today() - 1.day)!
+    public static var yesterday: Date {
+        return (today - 1.day)!
     }
 
     /// Creates a new instance representing tomorrow
     ///
     /// - returns: The created `Date` instance representing tomorrow.
-    public static func tomorrow() -> Date {
-        return (today() + 1.day)!
+    public static var tomorrow: Date {
+        return (today + 1.day)!
     }
 
     /// Creates a new instance added a `DateComponents`
