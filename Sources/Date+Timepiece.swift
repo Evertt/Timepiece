@@ -193,4 +193,8 @@ extension Date {
     public func timeString(in timeStyle: DateFormatter.Style) -> String {
         return string(inDateStyle: .none, andTimeStyle: timeStyle)
     }
+    
+    public func at(_ time: DateComponents) -> Date {
+        return Date(year: year, month: month, day: day, hour: time.hour ?? hour, minute: time.minute ?? minute, second: 0)
+    }
 }
