@@ -90,7 +90,7 @@ class DateTests: XCTestCase {
     }
 
     func testToday() {
-        let today = Date.today()
+        let today = Date.today
         let now = Date()
 
         XCTAssertEqual(today.year, now.year)
@@ -102,7 +102,7 @@ class DateTests: XCTestCase {
     }
 
     func testYesterday() {
-        let yesterday = Date.yesterday()
+        let yesterday = Date.yesterday
         let date = Date() - 1.day
 
         XCTAssertEqual(yesterday.year, date?.year)
@@ -114,7 +114,7 @@ class DateTests: XCTestCase {
     }
 
     func testTomorrow() {
-        let tomorrow = Date.tomorrow()
+        let tomorrow = Date.tomorrow
         let date = Date() + 1.day
 
         XCTAssertEqual(tomorrow.year, date?.year)
