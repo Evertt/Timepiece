@@ -43,3 +43,5 @@ now.timeString(in: .short)
 // Parse
 "2014/8/14".date(inFormat: "yyyy/MM/dd")
 "2014-08-14T20:25:43+0900".dateInISO8601Format()
+
+1.week.from(.now)?.at(9.20.AM)
