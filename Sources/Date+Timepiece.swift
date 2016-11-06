@@ -9,6 +9,10 @@
 import Foundation
 
 extension Date {
+    public enum Weekday: Int {
+        case sunday = 1, monday, tuesday, wednesday, thursday, friday, saturday
+    }
+    
     /// The year.
     public var year: Int {
         return dateComponents.year!
@@ -50,7 +54,11 @@ extension Date {
     }
 
     private var dateComponents: DateComponents {
-        return calendar.dateComponents([.era, .year, .month, .day, .hour, .minute, .second, .nanosecond, .weekday], from: self)
+        return dateComponents([.era, .year, .month, .day, .hour, .minute, .second, .nanosecond, .weekday])
+    }
+    
+    private func dateComponents(_ components: Set<Calendar.Component>) -> DateComponents {
+        return calendar.dateComponents(components, from: self)
     }
 
     // Returns user's calendar to be used to return `DateComponents` of the receiver.
@@ -141,6 +149,22 @@ extension Date {
     public static var tomorrow: Date {
         return (today + 1.day)!
     }
+    
+    public static func next(_ weekday: Weekday) -> Date {
+        let nextWeekday = weekday.rawValue
+        
+        let daysUntilNextWeekday = (nextWeekday + 7 - today.weekday) % 7
+        
+        return (today + daysUntilNextWeekday.days)!
+    }
+    
+    public static func last(_ weekday: Weekday) -> Date {
+        let prevWeekday = weekday.rawValue
+        
+        let daysSincePrevWeekday = (today.weekday + 7 - prevWeekday) % 7
+        
+        return (today - daysSincePrevWeekday.days)!
+    }
 
     /// Creates a new instance added a `DateComponents`
     ///
@@ -195,6 +219,13 @@ extension Date {
     }
     
     public func at(_ time: DateComponents) -> Date {
-        return Date(year: year, month: month, day: day, hour: time.hour ?? hour, minute: time.minute ?? minute, second: 0)
+        return Date(year: year, month: month, day: day, hour: time.hour ?? 0, minute: time.minute ?? 0, second: 0)
+    }
+    
+    public static func -(lhs: Date, rhs: Date) -> DateComponents {
+        let components: Set<Calendar.Component>
+        components = [.year, .month, .day, .hour, .minute, .second]
+        
+        return lhs.dateComponents(components) - rhs.dateComponents(components)
     }
 }

@@ -9,31 +9,31 @@
 import Foundation
 
 public extension DateComponents {
-    var ago: Date? {
+    var ago: Date {
         return before(.now)
     }
 
-    var later: Date? {
+    var later: Date {
         return after(.now)
     }
 
-    func after(_ date: Date) -> Date? {
-        return date + self
+    func after(_ date: Date) -> Date {
+        return (date + self)!
     }
 
-    func from(_ date: Date) -> Date? {
+    func from(_ date: Date) -> Date {
         return after(date)
     }
 
-    func since(_ date: Date) -> Date? {
+    func since(_ date: Date) -> Date {
         return after(date)
     }
 
-    func before(_ date: Date) -> Date? {
-        return date - self
+    func before(_ date: Date) -> Date {
+        return (date - self)!
     }
 
-    func until(_ date: Date) -> Date? {
+    func until(_ date: Date) -> Date {
         return before(date)
     }
 
@@ -138,5 +138,9 @@ public extension DateComponents {
         dateComponentsFormatter.allowedUnits = [.year, .month, .weekOfMonth, .day, .hour, .minute, .second, .nanosecond]
 
         return dateComponentsFormatter.string(from: self)
+    }
+    
+    public func timeInterval(reference date: Date = .now) -> TimeInterval {
+        return (date + self)!.timeIntervalSince(date)
     }
 }
