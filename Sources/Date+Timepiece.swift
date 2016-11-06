@@ -150,20 +150,20 @@ extension Date {
         return (today + 1.day)!
     }
     
-    public static func next(_ weekday: Weekday) -> Date {
+    public static func next(_ weekday: Weekday, after reference: Date = today) -> Date {
         let nextWeekday = weekday.rawValue
         
-        let daysUntilNextWeekday = (nextWeekday + 7 - today.weekday) % 7
+        let difference = (nextWeekday + 7 - reference.weekday) % 7
         
-        return (today + daysUntilNextWeekday.days)!
+        return (reference + difference.days)!
     }
     
-    public static func last(_ weekday: Weekday) -> Date {
+    public static func last(_ weekday: Weekday, before reference: Date = today) -> Date {
         let prevWeekday = weekday.rawValue
         
-        let daysSincePrevWeekday = (today.weekday + 7 - prevWeekday) % 7
+        let difference = (reference.weekday + 7 - prevWeekday) % 7
         
-        return (today - daysSincePrevWeekday.days)!
+        return (reference - difference.days)!
     }
 
     /// Creates a new instance added a `DateComponents`
