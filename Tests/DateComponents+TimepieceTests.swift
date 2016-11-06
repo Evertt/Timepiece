@@ -15,14 +15,14 @@ class DateComponentsTests: XCTestCase {
         var dateComponents = DateComponents()
         dateComponents.year = 1
 
-        XCTAssertEqual(dateComponents.ago?.year, Date().year - 1)
+        XCTAssertEqual(dateComponents.ago.year, Date().year - 1)
     }
 
     func testLater() {
         var dateComponents = DateComponents()
         dateComponents.year = 1
 
-        XCTAssertEqual(dateComponents.later?.year, Date().year + 1)
+        XCTAssertEqual(dateComponents.later.year, Date().year + 1)
     }
 
     func testMinusPrefix() {
