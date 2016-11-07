@@ -17,24 +17,12 @@ public extension DateComponents {
         return after(.now)
     }
 
-    func after(_ date: Date) -> Date {
-        return (date + self)!
-    }
-
-    func from(_ date: Date) -> Date {
-        return after(date)
-    }
-
-    func since(_ date: Date) -> Date {
-        return after(date)
-    }
-
     func before(_ date: Date) -> Date {
         return (date - self)!
     }
 
-    func until(_ date: Date) -> Date {
-        return before(date)
+    func after(_ date: Date) -> Date {
+        return (date + self)!
     }
 
     /// Creates inverse `DateComponents`

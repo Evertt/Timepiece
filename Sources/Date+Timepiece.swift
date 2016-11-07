@@ -165,6 +165,42 @@ extension Date {
         
         return (reference - difference.days)!
     }
+    
+    public static func next(_ period: Calendar.Component, after reference: Date = now) -> ClosedRange<Date> {
+        var component = DateComponents()
+        component.setValue(1, for: period)
+        
+        let nextDate = reference + component
+        
+        return nextDate!...reference
+    }
+    
+    public static func last(_ period: Calendar.Component, before reference: Date = now) -> ClosedRange<Date> {
+        var component = DateComponents()
+        component.setValue(1, for: period)
+        
+        let lastDate = reference - component
+        
+        return lastDate!...reference
+    }
+    
+    public func `in`(_ range: Range<Date>) -> Bool {
+        return range.contains(self)
+    }
+    
+    public func `in`(_ range: ClosedRange<Date>) -> Bool {
+        return range.contains(self)
+    }
+    
+    public func between(_ low: Date, and high: Date) -> Bool {
+        var low = low, high = high
+        
+        if low > high {
+            swap(&low, &high)
+        }
+        
+        return self.in(low...high)
+    }
 
     /// Creates a new instance added a `DateComponents`
     ///
@@ -228,4 +264,20 @@ extension Date {
         
         return lhs.dateComponents(components) - rhs.dateComponents(components)
     }
+}
+
+public func next(_ weekday: Date.Weekday, after reference: Date = .today) -> Date {
+    return Date.next(weekday, after: reference)
+}
+
+public func last(_ weekday: Date.Weekday, before reference: Date = .today) -> Date {
+    return Date.last(weekday, before: reference)
+}
+
+public func next(_ period: Calendar.Component, after reference: Date = .now) -> ClosedRange<Date> {
+    return Date.next(period, after: reference)
+}
+
+public func last(_ period: Calendar.Component, before reference: Date = .now) -> ClosedRange<Date> {
+    return Date.last(period, before: reference)
 }

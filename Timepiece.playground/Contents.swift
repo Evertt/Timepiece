@@ -30,8 +30,7 @@ now + (3.weeks - 4.days + 5.hours)
 
 1.year.later
 1.year.ago
-
-1.year.from(.tomorrow)
+1.year.after(.tomorrow)
 
 // Format
 now.string(inDateStyle: .long, andTimeStyle: .medium)
@@ -41,12 +40,13 @@ now.timeString(in: .short)
 3.days.string(in: .full)
 
 // Parse
-"2014/8/14".date(inFormat: "yyyy/MM/dd")
-"2014-08-14T20:25:43+0900".dateInISO8601Format()
+"2014/8/14".date(fromFormat: "yyyy/MM/dd")
+"2014-08-14T20:25:43+0900".dateFromISO8601Format()
 
-1.week.from(.now).at(9.20.AM)
+func scheduleSomething(_ date: Date) {}
+scheduleSomething(next(.friday).at(5.AM))
 
-let high = Date.next(.thursday).at(8.30.AM)
-let low = Date.last(.wednesday).at(8.PM)
+1.week.after(.now).at(9.20.AM)
 
-high - low
+let ref = 5.hours.ago
+ref.in(last(.month))
