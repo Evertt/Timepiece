@@ -50,3 +50,6 @@ scheduleSomething(next(.friday).at(5.AM))
 
 let ref = 5.hours.ago
 ref.in(last(.month))
+
+func doSomething(in seconds: TimeInterval) {print(seconds)}
+doSomething(in: 1.week + 1.day)
