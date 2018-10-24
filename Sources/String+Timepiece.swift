@@ -14,7 +14,7 @@ extension String {
     /// - parameter format: The format to be used to parse.
     ///
     /// - returns: The created `Date` instance.
-    public func date(fromFormat format: String) -> Date? {
+    public func date(inFormat format: String) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
@@ -29,7 +29,7 @@ extension String {
     ///
     /// - returns: The created `Date` instance.
     @available(iOS 10.0, OSX 10.12, watchOS 3.0, tvOS 10.0, *)
-    public func dateFromISO8601Format(withOptions options: ISO8601DateFormatter.Options = [.withInternetDateTime]) -> Date? {
+    public func dateInISO8601Format(with options: ISO8601DateFormatter.Options = [.withInternetDateTime]) -> Date? {
         let dateFormatter = ISO8601DateFormatter()
         dateFormatter.formatOptions = options
         dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)

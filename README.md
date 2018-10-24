@@ -4,15 +4,12 @@ Intuitive date handling in Swift
 ## Features
 * :bulb: **Intuitive**: Timepiece provides a set of helpers to make date handling easier.
 * :clock9: **Correct**: Using Foundation API correctly, Timepiece helps to calculate dates correctly without deep understanding.
-* :package: **Small**: Timepiece has only 4 file and < 400 sloc. You can read the inside of this easily.
+* :package: **Small**: Timepiece has only 4 file. You can read the inside of this easily.
 
 ## Requirements
 
-| version | Swift | iOS  | macOS | tvOS | watchOS | NOTE |
-| ------- | ----- | ---- | ----- | ---- | ------- | ---- |
-| 1.0.0+  | 3.0+  | 8.0+ | 10.9+ | 9.0+ | 2.0+    | Incompatible with 0.6.x |
-| 0.6.0+  | 3.0+  | 8.0+ | 10.9+ | 9.0+ | 2.0+    | |
-| 0.5.0+  | 2.3   | 8.0+ | 10.9+ | 9.0+ | 2.0+    | |
+* Swift 3.0+
+* iOS 8.0+ / macOS 10.9+ / tvOS 9.0+ / watchOS 2.0+
 
 ## Usage
 
@@ -46,10 +43,19 @@ Date.last(.wednesday)
 Date.last(.wednesday, before: .last(.thursday))
 ```
 
+### Change
+
+```swift
+now.changed(year: 2014)
+now.changed(weekday: 1)
+now.truncated([.minute, .second, .nanosecond])
+now.truncated(from: .day)
+```
+
 ### Formating
 
 ```swift
-now.string(inDateStyle: .long, andTimeStyle: .medium)
+now.stringIn(dateStyle: .long, timeStyle: .medium)
 now.dateString(in: .medium)
 now.timeString(in: .short)
 

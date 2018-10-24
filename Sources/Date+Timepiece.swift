@@ -222,18 +222,163 @@ extension Date {
         return Calendar.current.date(byAdding: -right, to: left)
     }
 
+    /// Creates a new instance by changing the date components
+    ///
+    /// - Parameters:
+    ///   - year: The year.
+    ///   - month: The month.
+    ///   - day: The day.
+    ///   - hour: The hour.
+    ///   - minute: The minute.
+    ///   - second: The second.
+    ///   - nanosecond: The nanosecond.
+    /// - Returns: The created `Date` instnace.
+    public func changed(year: Int? = nil, month: Int? = nil, day: Int? = nil, hour: Int? = nil, minute: Int? = nil, second: Int? = nil, nanosecond: Int? = nil) -> Date? {
+        var dateComponents = self.dateComponents
+        dateComponents.year = year ?? self.year
+        dateComponents.month = month ?? self.month
+        dateComponents.day = day ?? self.day
+        dateComponents.hour = hour ?? self.hour
+        dateComponents.minute = minute ?? self.minute
+        dateComponents.second = second ?? self.second
+        dateComponents.nanosecond = nanosecond ?? self.nanosecond
+
+        return calendar.date(from: dateComponents)
+    }
+
+    /// Creates a new instance by changing the year.
+    ///
+    /// - Parameter year: The year.
+    /// - Returns: The created `Date` instance.
+    public func changed(year: Int) -> Date? {
+        return changed(year: year, month: nil, day: nil, hour: nil, minute: nil, second: nil, nanosecond: nil)
+    }
+
+    /// Creates a new instance by changing the month.
+    ///
+    /// - Parameter month: The month.
+    /// - Returns: The created `Date` instance.
+    public func changed(month: Int) -> Date? {
+        return changed(year: nil, month: month, day: nil, hour: nil, minute: nil, second: nil, nanosecond: nil)
+    }
+
+    /// Creates a new instance by changing the day.
+    ///
+    /// - Parameter day: The day.
+    /// - Returns: The created `Date` instance.
+    public func changed(day: Int) -> Date? {
+        return changed(year: nil, month: nil, day: day, hour: nil, minute: nil, second: nil, nanosecond: nil)
+    }
+
+    /// Creates a new instance by changing the hour.
+    ///
+    /// - Parameter hour: The hour.
+    /// - Returns: The created `Date` instance.
+    public func changed(hour: Int) -> Date? {
+        return changed(year: nil, month: nil, day: nil, hour: hour, minute: nil, second: nil, nanosecond: nil)
+    }
+
+    /// Creates a new instance by changing the minute.
+    ///
+    /// - Parameter minute: The minute.
+    /// - Returns: The created `Date` instance.
+    public func changed(minute: Int) -> Date? {
+        return changed(year: nil, month: nil, day: nil, hour: nil, minute: minute, second: nil, nanosecond: nil)
+    }
+
+    /// Creates a new instance by changing the second.
+    ///
+    /// - Parameter second: The second.
+    /// - Returns: The created `Date` instance.
+    public func changed(second: Int) -> Date? {
+        return changed(year: nil, month: nil, day: nil, hour: nil, minute: nil, second: second, nanosecond: nil)
+    }
+
+    /// Creates a new instance by changing the nanosecond.
+    ///
+    /// - Parameter nanosecond: The nanosecond.
+    /// - Returns: The created `Date` instance.
+    public func changed(nanosecond: Int) -> Date? {
+        return changed(year: nil, month: nil, day: nil, hour: nil, minute: nil, second: nil, nanosecond: nanosecond)
+    }
+
+    /// Creates a new instance by changing the weekday.
+    ///
+    /// - Parameter weekday: The weekday.
+    /// - Returns: The created `Date` instance.
+    public func changed(weekday: Int) -> Date? {
+        return self - (self.weekday - weekday).days
+    }
+
+    /// Creates a new instance by truncating the components
+    ///
+    /// - Parameter components: The components to be truncated.
+    /// - Returns: The created `Date` instance.
+    public func truncated(_ components: [Calendar.Component]) -> Date? {
+        var dateComponents = self.dateComponents
+
+        for component in components {
+            switch component {
+            case .month:
+                dateComponents.month = 1
+            case .day:
+                dateComponents.day = 1
+            case .hour:
+                dateComponents.hour = 0
+            case .minute:
+                dateComponents.minute = 0
+            case .second:
+                dateComponents.second = 0
+            case .nanosecond:
+                dateComponents.nanosecond = 0
+            default:
+                continue
+            }
+        }
+        
+        return calendar.date(from: dateComponents)
+    }
+
+    /// Creates a new instance by truncating the components
+    ///
+    /// - Parameter component: The component to be truncated from.
+    /// - Returns: The created `Date` instance.
+    public func truncated(from component: Calendar.Component) -> Date? {
+        switch component {
+        case .month:
+            return truncated([.month, .day, .hour, .minute, .second, .nanosecond])
+        case .day:
+            return truncated([.day, .hour, .minute, .second, .nanosecond])
+        case .hour:
+            return truncated([.hour, .minute, .second, .nanosecond])
+        case .minute:
+            return truncated([.minute, .second, .nanosecond])
+        case .second:
+            return truncated([.second, .nanosecond])
+        case .nanosecond:
+            return truncated([.nanosecond])
+        default:
+            return self
+        }
+    }
+
     /// Creates a new `String` instance representing the receiver formatted in given date style and time style.
     ///
     /// - parameter dateStyle: The date style.
     /// - parameter timeStyle: The time style.
     ///
     /// - returns: The created `String` instance.
-    public func string(inDateStyle dateStyle: DateFormatter.Style, andTimeStyle timeStyle: DateFormatter.Style) -> String {
+    public func stringIn(dateStyle: DateFormatter.Style, timeStyle: DateFormatter.Style) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = dateStyle
         dateFormatter.timeStyle = timeStyle
 
         return dateFormatter.string(from: self)
+    }
+
+    @available(*, unavailable, renamed: "stringIn(dateStyle:timeStyle:)")
+    public func string(inDateStyle dateStyle: DateFormatter.Style, andTimeStyle timeStyle: DateFormatter.Style) -> String {
+        return stringIn(dateStyle: dateStyle, timeStyle: timeStyle)
     }
 
     /// Creates a new `String` instance representing the date of the receiver formatted in given date style.
@@ -242,7 +387,7 @@ extension Date {
     ///
     /// - returns: The created `String` instance.
     public func dateString(in dateStyle: DateFormatter.Style) -> String {
-        return string(inDateStyle: dateStyle, andTimeStyle: .none)
+        return stringIn(dateStyle: dateStyle, timeStyle: .none)
     }
 
     /// Creates a new `String` instance representing the time of the receiver formatted in given time style.
@@ -251,7 +396,7 @@ extension Date {
     ///
     /// - returns: The created `String` instance.
     public func timeString(in timeStyle: DateFormatter.Style) -> String {
-        return string(inDateStyle: .none, andTimeStyle: timeStyle)
+        return stringIn(dateStyle: .none, timeStyle: timeStyle)
     }
     
     public func at(_ time: DateComponents) -> Date {
