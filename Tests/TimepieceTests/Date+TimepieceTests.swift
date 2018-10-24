@@ -196,19 +196,4 @@ class DateTests: XCTestCase {
         XCTAssertEqual(newDate?.second, 0)
         XCTAssertEqual(newDate?.nanosecond, 0)
     }
-
-    func testStringInStyles() {
-        let sampleString = sample.stringIn(dateStyle: .short, timeStyle: .short)
-        XCTAssertEqual(sampleString, "8/15/14, 8:25 PM")
-    }
-
-    func testDateString() {
-        let sampleString = sample.dateString(in: .short)
-        XCTAssertEqual(sampleString, "8/15/14")
-    }
-
-    func testTimeString() {
-        let sampleString = sample.timeString(in: .short)
-        XCTAssertEqual(sampleString, "8:25 PM")
-    }
 }
