@@ -16,74 +16,75 @@
             "en"
          );
          mainGroup = "OBJ_5";
-         productRefGroup = "OBJ_10";
+         productRefGroup = "OBJ_21";
          projectDirPath = ".";
          targets = (
-            "Timepiece::SwiftPMPackageDescription"
+            "Timepiece::Timepiece",
+            "Timepiece::SwiftPMPackageDescription",
+            "Timepiece::TimepiecePackageTests::ProductTarget",
+            "Timepiece::TimepieceTests"
          );
       };
       "OBJ_10" = {
-         isa = "PBXGroup";
-         children = (
-         );
-         name = "Products";
-         path = "";
-         sourceTree = "BUILT_PRODUCTS_DIR";
+         isa = "PBXFileReference";
+         path = "DateComponents+Timepiece.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_11" = {
+         isa = "PBXFileReference";
+         path = "Double+Timepiece.swift";
+         sourceTree = "<group>";
       };
       "OBJ_12" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_13",
-            "OBJ_14"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
+         isa = "PBXFileReference";
+         path = "Int+Timepiece.swift";
+         sourceTree = "<group>";
       };
       "OBJ_13" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "4",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
-            );
-            SWIFT_VERSION = "4.0";
-         };
-         name = "Debug";
+         isa = "PBXFileReference";
+         path = "String+Timepiece.swift";
+         sourceTree = "<group>";
       };
       "OBJ_14" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "4",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4",
-               "-target",
-               "x86_64-apple-macosx10.10",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
-            );
-            SWIFT_VERSION = "4.0";
-         };
-         name = "Release";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_15"
+         );
+         name = "Tests";
+         path = "";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_15" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_16"
+         isa = "PBXGroup";
+         children = (
+            "OBJ_16",
+            "OBJ_17",
+            "OBJ_18",
+            "OBJ_19"
          );
+         name = "TimepieceTests";
+         path = "Tests/TimepieceTests";
+         sourceTree = "SOURCE_ROOT";
       };
       "OBJ_16" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_6";
+         isa = "PBXFileReference";
+         path = "Date+TimepieceTests.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_17" = {
+         isa = "PBXFileReference";
+         path = "DateComponents+TimepieceTests.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_18" = {
+         isa = "PBXFileReference";
+         path = "Int+TimepieceTests.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_19" = {
+         isa = "PBXFileReference";
+         path = "String+TimepieceTests.swift";
+         sourceTree = "<group>";
       };
       "OBJ_2" = {
          isa = "XCConfigurationList";
@@ -93,6 +94,118 @@
          );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Release";
+      };
+      "OBJ_20" = {
+         isa = "PBXFileReference";
+         path = "Timepiece.xcworkspace";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_21" = {
+         isa = "PBXGroup";
+         children = (
+            "Timepiece::TimepieceTests::Product",
+            "Timepiece::Timepiece::Product"
+         );
+         name = "Products";
+         path = "";
+         sourceTree = "BUILT_PRODUCTS_DIR";
+      };
+      "OBJ_25" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_26",
+            "OBJ_27"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_26" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "Timepiece.xcodeproj/Timepiece_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "Timepiece";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "4.0";
+            TARGET_NAME = "Timepiece";
+         };
+         name = "Debug";
+      };
+      "OBJ_27" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "Timepiece.xcodeproj/Timepiece_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "Timepiece";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "4.0";
+            TARGET_NAME = "Timepiece";
+         };
+         name = "Release";
+      };
+      "OBJ_28" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_29",
+            "OBJ_30",
+            "OBJ_31",
+            "OBJ_32",
+            "OBJ_33"
+         );
+      };
+      "OBJ_29" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_9";
       };
       "OBJ_3" = {
          isa = "XCBuildConfiguration";
@@ -133,6 +246,78 @@
          };
          name = "Debug";
       };
+      "OBJ_30" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_10";
+      };
+      "OBJ_31" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_11";
+      };
+      "OBJ_32" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_12";
+      };
+      "OBJ_33" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_13";
+      };
+      "OBJ_34" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+         );
+      };
+      "OBJ_36" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_37",
+            "OBJ_38"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_37" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "4",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4",
+               "-target",
+               "x86_64-apple-macosx10.10",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+            );
+            SWIFT_VERSION = "4.0";
+         };
+         name = "Debug";
+      };
+      "OBJ_38" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "4",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4",
+               "-target",
+               "x86_64-apple-macosx10.10",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+            );
+            SWIFT_VERSION = "4.0";
+         };
+         name = "Release";
+      };
+      "OBJ_39" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_40"
+         );
+      };
       "OBJ_4" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
@@ -165,17 +350,164 @@
          };
          name = "Release";
       };
+      "OBJ_40" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_6";
+      };
+      "OBJ_42" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_43",
+            "OBJ_44"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_43" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+         };
+         name = "Debug";
+      };
+      "OBJ_44" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+         };
+         name = "Release";
+      };
+      "OBJ_45" = {
+         isa = "PBXTargetDependency";
+         target = "Timepiece::TimepieceTests";
+      };
+      "OBJ_47" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_48",
+            "OBJ_49"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_48" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            CLANG_ENABLE_MODULES = "YES";
+            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "Timepiece.xcodeproj/TimepieceTests_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "@loader_path/../Frameworks",
+               "@loader_path/Frameworks"
+            );
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "4.0";
+            TARGET_NAME = "TimepieceTests";
+         };
+         name = "Debug";
+      };
+      "OBJ_49" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            CLANG_ENABLE_MODULES = "YES";
+            EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "Timepiece.xcodeproj/TimepieceTests_Info.plist";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "@loader_path/../Frameworks",
+               "@loader_path/Frameworks"
+            );
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "4.0";
+            TARGET_NAME = "TimepieceTests";
+         };
+         name = "Release";
+      };
       "OBJ_5" = {
          isa = "PBXGroup";
          children = (
             "OBJ_6",
             "OBJ_7",
-            "OBJ_8",
-            "OBJ_9",
-            "OBJ_10"
+            "OBJ_14",
+            "OBJ_20",
+            "OBJ_21"
          );
          path = "";
          sourceTree = "<group>";
+      };
+      "OBJ_50" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_51",
+            "OBJ_52",
+            "OBJ_53",
+            "OBJ_54"
+         );
+      };
+      "OBJ_51" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_16";
+      };
+      "OBJ_52" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_17";
+      };
+      "OBJ_53" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_18";
+      };
+      "OBJ_54" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_19";
+      };
+      "OBJ_55" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+            "OBJ_56"
+         );
+      };
+      "OBJ_56" = {
+         isa = "PBXBuildFile";
+         fileRef = "Timepiece::Timepiece::Product";
+      };
+      "OBJ_57" = {
+         isa = "PBXTargetDependency";
+         target = "Timepiece::Timepiece";
       };
       "OBJ_6" = {
          isa = "PBXFileReference";
@@ -186,6 +518,7 @@
       "OBJ_7" = {
          isa = "PBXGroup";
          children = (
+            "OBJ_8"
          );
          name = "Sources";
          path = "";
@@ -194,27 +527,82 @@
       "OBJ_8" = {
          isa = "PBXGroup";
          children = (
+            "OBJ_9",
+            "OBJ_10",
+            "OBJ_11",
+            "OBJ_12",
+            "OBJ_13"
          );
-         name = "Tests";
-         path = "";
+         name = "Timepiece";
+         path = "Sources/Timepiece";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_9" = {
          isa = "PBXFileReference";
-         path = "Timepiece.xcworkspace";
-         sourceTree = "SOURCE_ROOT";
+         path = "Date+Timepiece.swift";
+         sourceTree = "<group>";
       };
       "Timepiece::SwiftPMPackageDescription" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_12";
+         buildConfigurationList = "OBJ_36";
          buildPhases = (
-            "OBJ_15"
+            "OBJ_39"
          );
          dependencies = (
          );
          name = "TimepiecePackageDescription";
          productName = "TimepiecePackageDescription";
          productType = "com.apple.product-type.framework";
+      };
+      "Timepiece::Timepiece" = {
+         isa = "PBXNativeTarget";
+         buildConfigurationList = "OBJ_25";
+         buildPhases = (
+            "OBJ_28",
+            "OBJ_34"
+         );
+         dependencies = (
+         );
+         name = "Timepiece";
+         productName = "Timepiece";
+         productReference = "Timepiece::Timepiece::Product";
+         productType = "com.apple.product-type.framework";
+      };
+      "Timepiece::Timepiece::Product" = {
+         isa = "PBXFileReference";
+         path = "Timepiece.framework";
+         sourceTree = "BUILT_PRODUCTS_DIR";
+      };
+      "Timepiece::TimepiecePackageTests::ProductTarget" = {
+         isa = "PBXAggregateTarget";
+         buildConfigurationList = "OBJ_42";
+         buildPhases = (
+         );
+         dependencies = (
+            "OBJ_45"
+         );
+         name = "TimepiecePackageTests";
+         productName = "TimepiecePackageTests";
+      };
+      "Timepiece::TimepieceTests" = {
+         isa = "PBXNativeTarget";
+         buildConfigurationList = "OBJ_47";
+         buildPhases = (
+            "OBJ_50",
+            "OBJ_55"
+         );
+         dependencies = (
+            "OBJ_57"
+         );
+         name = "TimepieceTests";
+         productName = "TimepieceTests";
+         productReference = "Timepiece::TimepieceTests::Product";
+         productType = "com.apple.product-type.bundle.unit-test";
+      };
+      "Timepiece::TimepieceTests::Product" = {
+         isa = "PBXFileReference";
+         path = "TimepieceTests.xctest";
+         sourceTree = "BUILT_PRODUCTS_DIR";
       };
    };
    rootObject = "OBJ_1";
