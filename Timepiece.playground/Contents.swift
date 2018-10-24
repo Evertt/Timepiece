@@ -32,8 +32,14 @@ now + (3.weeks - 4.days + 5.hours)
 1.year.ago
 1.year.after(.tomorrow)
 
+// Change
+now.changed(year: 2014)
+now.changed(weekday: 1)
+now.truncated([.minute, .second, .nanosecond])
+now.truncated(from: .day)
+
 // Format
-now.string(inDateStyle: .long, andTimeStyle: .medium)
+now.stringIn(dateStyle: .long, timeStyle: .medium)
 now.dateString(in: .medium)
 now.timeString(in: .short)
 
