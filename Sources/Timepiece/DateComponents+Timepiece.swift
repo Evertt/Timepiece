@@ -120,7 +120,7 @@ public extension DateComponents {
     ///
     /// - returns: The created a `String` instance.
     @available(OSX 10.10, *)
-    public func string(in unitsStyle: DateComponentsFormatter.UnitsStyle) -> String? {
+    func string(in unitsStyle: DateComponentsFormatter.UnitsStyle) -> String? {
         let dateComponentsFormatter = DateComponentsFormatter()
         dateComponentsFormatter.unitsStyle = unitsStyle
         dateComponentsFormatter.allowedUnits = [.year, .month, .weekOfMonth, .day, .hour, .minute, .second]
@@ -128,7 +128,7 @@ public extension DateComponents {
         return dateComponentsFormatter.string(from: self)
     }
     
-    public func timeInterval(reference date: Date = .now) -> TimeInterval {
+    func timeInterval(reference date: Date = .now) -> TimeInterval {
         return (date + self)!.timeIntervalSince(date)
     }
 }
