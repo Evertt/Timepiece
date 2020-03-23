@@ -13,7 +13,7 @@ public extension DateComponents {
         return before(.now)
     }
 
-    var later: Date {
+    var fromNow: Date {
         return after(.now)
     }
 
